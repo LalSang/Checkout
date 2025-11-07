@@ -29,8 +29,50 @@ public class Menu implements ReadOnlyMenu {
         }
     }
 
-    @Override
-    public Optional<MenuItem> getItemById(String itemID) {
+    public boolean removeItem(MenuItem item) {
+
+        if (item == null) {
+            return false;
+        }
+
+        String itemID = item.getItemID();
+
+        if (itemID == null || itemID.trim().isEmpty()) {
+            return false;
+        }
+
+        if (itemsById.containsKey(itemID)) {
+            itemsById.remove(itemID);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean updateItem(MenuItem item) {
+        if (item == null) {
+            return false;
+        }
+
+        String itemID = item.getItemID();
+
+        if (itemID == null || itemID.trim().isEmpty()) {
+            return false;
+        } else if (!itemsById.containsKey(itemID)) {
+            return false;
+        } else if (item.getPrice() == null || item.getPrice() < 0) {
+            return false;
+        } else if (item.getCategory() == null || item.getCategory().isEmpty()) {
+            return false;
+        } else {
+            itemsById.replace(itemID, item);
+            return true;
+        }
+    }
+
+    public
+
+    @Override public Optional<MenuItem> getItemById(String itemID) {
 
     }
 
