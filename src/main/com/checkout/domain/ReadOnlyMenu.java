@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Locale.Category;
 
-public class ReadOnlyMenu {
+public interface ReadOnlyMenu {
     Optional<MenuItem> getItemById(String itemID);
 
     List<MenuItem> listActiveItems();
