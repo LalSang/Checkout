@@ -7,25 +7,26 @@ import java.util.HashMap;
 
 public class Menu implements ReadOnlyMenu {
 
-    private String itemID;
-    private String itemName;
-    private double price;
-    private String category;
-    private boolean active;
-
     private Map<String, MenuItem> itemsById = new HashMap<>();
 
-    public Menu(String iD, String name, Double cost, String cate) {
-        this.itemID = iD;
-        this.itemName = name;
-        this.price = cost;
-        this.category = cate;
-    }
+    public boolean addItem(MenuItem item) {
+        if (item == null) {
+            return false;
+        }
 
-    public void addItem(MenuItem item)) {
-        if (!itemsById.containsValue(item)) {
-            itemsById.put(item.getId(), item);
-        } 
+        String itemID = item.getItemID();
+        if (itemID == null || itemID.trim().isEmpty()) {
+            return false;
+        } else if (itemsById.containsKey(itemID)) {
+            return false;
+        } else if (item.getPrice() == null || item.getPrice() < 0) {
+            return false;
+        } else if (item.getCategory() == null || item.getCategory().isEmpty()) {
+            return false;
+        } else {
+            itemsById.put(itemID, item);
+            return true;
+        }
     }
 
     @Override
