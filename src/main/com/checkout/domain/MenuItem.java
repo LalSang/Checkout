@@ -8,6 +8,14 @@ public class MenuItem {
     private String category;
     private boolean active;
 
+    public MenuItem() {
+        this.itemID = "";
+        this.itemName = "";
+        this.price = cost;
+        this.category = cate;
+        this.active = true;
+    }
+
     public MenuItem(String iD, String name, Double cost, String cate) {
         this.itemID = iD;
         this.itemName = name;
