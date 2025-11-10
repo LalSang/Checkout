@@ -11,8 +11,8 @@ public class MenuItem {
     public MenuItem() {
         this.itemID = "";
         this.itemName = "";
-        this.price = cost;
-        this.category = cate;
+        this.price = 0;
+        this.category = "";
         this.active = true;
     }
 
