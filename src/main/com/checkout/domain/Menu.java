@@ -70,17 +70,18 @@ public class Menu implements ReadOnlyMenu {
         }
     }
 
-    public
+    @Override
+    public Optional<MenuItem> getItemById(String itemID) {
 
-    @Override public Optional<MenuItem> getItemById(String itemID) {
-        MenuItem itID = new MenuItem();
-        itemID = itID.getItemID();
-
+        // Check for null or blank ID
         if (itemID == null || itemID.trim().isEmpty()) {
             return Optional.empty();
-        } else {
-
         }
+
+        // Look up the item in the map
+        MenuItem foundItem = itemsById.get(itemID);
+        // Wrap the result (null becomes Optional.empty())
+        return Optional.ofNullable(foundItem);
 
     }
 
@@ -103,9 +104,5 @@ public class Menu implements ReadOnlyMenu {
     public List<MenuItem> findItemsByName(String name) {
 
     }
-
-}
-
-public MenuItem() {
 
 }
