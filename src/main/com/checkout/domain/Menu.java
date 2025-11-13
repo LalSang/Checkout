@@ -73,7 +73,14 @@ public class Menu implements ReadOnlyMenu {
     public
 
     @Override public Optional<MenuItem> getItemById(String itemID) {
-        MenuItem itID = new MenuItem(itemID, itemID, null, itemID);
+        MenuItem itID = new MenuItem();
+        itemID = itID.getItemID();
+
+        if (itemID == null || itemID.trim().isEmpty()) {
+            return Optional.empty();
+        } else {
+
+        }
 
     }
 
