@@ -81,10 +81,6 @@ public class Menu implements ReadOnlyMenu {
 
         // Look up the item in the map
         MenuItem foundItem = itemsById.get(itemID);
-
-        if (foundItem == Null) {
-            return foundItem;
-        }
         // Wrap the result (null becomes Optional.empty())
         return Optional.ofNullable(foundItem);
 
