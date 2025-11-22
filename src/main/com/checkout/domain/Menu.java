@@ -94,6 +94,7 @@ public class Menu implements ReadOnlyMenu {
     }
 
     @Override
+    // This method will get item by their categories
     public List<MenuItem> getItemsByCategory(String categoryId) {
 
     }
