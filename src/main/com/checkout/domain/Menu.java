@@ -87,6 +87,8 @@ public class Menu implements ReadOnlyMenu {
     }
 
     @Override
+    // This will check for active item
+    // make sure is false if item not avaliable
     public List<MenuItem> listActiveItems() {
 
     }
